@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
-export default () => {
+const Page = () => {
     const notes = new Array(15).fill(1).map((e, i) => ({id: i, title: `Note: ${i}`}))
 
     return (
@@ -21,3 +21,4 @@ export default () => {
     )
 }
 
+export default Page;
