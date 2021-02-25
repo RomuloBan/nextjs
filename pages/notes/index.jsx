@@ -1,10 +1,9 @@
 /** @jsx jsx */ /** @jsxRuntime classic */ 
 import { jsx } from 'theme-ui'
 import Link from 'next/link'
-import Page from '..'
 
-const NotesIndex =  () => {
-  const notes = new Array(15).fill(1).map((e, i) => ({id: i, title: `This is my note ${i}`}))
+const NotesIndex =  ({notes}) => {
+  //const notes = new Array(15).fill(1).map((e, i) => ({id: i, title: `This is my note ${i}`}))
 
   return (
     <div sx={{variant: 'containers.page'}}>
@@ -28,3 +27,12 @@ const NotesIndex =  () => {
 }
 
 export default NotesIndex;
+
+export async function getServerSideProps() {
+    const res = await fetch(`http://localhost:3000/api/note/`)
+    const {data} = await res.json()
+    console.log('<<<<<<data', data)
+    return {
+      props: {notes: data}
+    }
+  }
