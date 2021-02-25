@@ -5,4 +5,4 @@ const notes = new Array(15)
         title: `Note ${i}`
     }))
 
-module.exports = notes
+export default notes
