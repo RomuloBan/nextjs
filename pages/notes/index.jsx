@@ -31,7 +31,6 @@ export default NotesIndex;
 export async function getServerSideProps() {
     const res = await fetch(`http://localhost:3000/api/note/`)
     const {data} = await res.json()
-    console.log('<<<<<<data', data)
     return {
       props: {notes: data}
     }
