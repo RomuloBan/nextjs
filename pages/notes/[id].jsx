@@ -12,7 +12,7 @@ const NotePage = ({note}) => {
 export default NotePage;
 
 export async function getServerSideProps({req, res, params}) {
-    const response = await fetch(`http://localhost:3000/api/note/${params.id}`)
+    const response = await fetch(`${process.env.API_URL}/api/note/${params.id}`)
     if (!response.ok) {
         res.setHeader('Location', '/notes')
         res.statusCode = 302
