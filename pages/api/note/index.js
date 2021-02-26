@@ -3,7 +3,7 @@ import notes from '../../../src/data/data'
 
 const handler = nc()
   .get((req, res) => {
-    console.log('>>>>>', notes)
+    console.log('>>>>>notes index', notes)
     res.json({data: notes})
   })
   .post((req, res) => {
